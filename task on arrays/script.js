@@ -1,30 +1,29 @@
 function isArray(obj) {
-  return typeof obj ==="object" &&
-  Object.prototype.toString.call(obj) === "[object Array]";
+  return toString.call(obj) === "[object Array]";
 }
+
 function isArray2(obj) {
-  return !!obj && obj.constructor === Array;
+  return (!!obj && obj.constructor === Array);
 }
-function range(a, /*необязательный*/ b ,
-  /*необязательный*/ c) {
-  let first, last,
-    step = c || 1;
-  if (b) {
-    first = a;
-    last = b;
-  } else {
-    first = 0;
-    last = a;
+
+function range(a, b, step) {
+  step = step || 1;
+  if (!b) {
+    b = a;
+    a = 0;
   }
+  function condition(value) { return (step > 0) ? value < b : value > b; }
   let array = [];
-  for (let value = first; (step > 0) ? value < last :  value > last; value += step) {
+  for (let value = a; condition(value); value += step) {
     array.push(value);
   }
   return array;
 }
+
 function compact(array) {
   return array.filter((function(x) { return x }));
 }
+
 function compact2(array) {
   let result = [];
   for (var i = 0; i < array.length; i++) {
@@ -32,9 +31,11 @@ function compact2(array) {
   }
   return result;
 }
+
 function sum(array) {
   return array.reduce((function(x, y) { return x + y }));
 }
+
 function sum2(array) {
   let sum = 0;
   for (var i = 0; i < array.length; i++) {
@@ -42,22 +43,21 @@ function sum2(array) {
   }
   return sum;
 }
+
 function unique(array) {
   return array.filter(function(value, index, array) {
     return array.indexOf(value, index + 1) < 0 }
   );
 }
+
 function last(array) {
   return array[array.length - 1];
 }
+
 function excludeLast(array, delLength) {
   delLength = delLength || 1;
-  if (delLength > 0) {
-    if (delLength < array.length )
-    array.length -= delLength;
-    else array.length = 0;
-  }
-  return array;
+  if (delLength > 0) delLength *= -1;
+  return array.slice(0, delLength);
 }
 
 
