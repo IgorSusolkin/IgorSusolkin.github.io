@@ -8,7 +8,7 @@ function isArray2(obj) {
 
 function range(a, b, step) {
   step = step || 1;
-  if (!b) {
+  if (!(b || b === 0)) {
     b = a;
     a = 0;
   }
@@ -72,6 +72,7 @@ console.log("isArray2");
 console.log(isArray2({}));
 console.log(isArray2([]));
 console.log(isArray2(""));
+console.log(isArray2("5"));
 console.log(isArray2(5));
 console.log(isArray2(null));
 console.log(isArray2(undefined));
@@ -81,6 +82,7 @@ console.log(range(1, 5));
 console.log(range(1, 10, 2));
 console.log(range(10, 1, -1));
 console.log(range(10, 5, -5));
+console.log(range(3, 0, -1));
 console.log("compact");
 console.log(compact([1, 2, 3, 4]));
 console.log(compact([null, , 6, NaN]));
