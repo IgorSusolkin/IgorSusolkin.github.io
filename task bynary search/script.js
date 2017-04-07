@@ -1,6 +1,6 @@
-function binarySearch(array, element, first, last) {
-  first = first || 0;
-  if (!Number.isInteger(last)) last = array.length - 1;
+function binarySearch(array, element) {
+  let first = 0;
+  let last = array.length - 1;
   let index;
   while (first <= last) {
     index = first + Math.floor((last - first) / 2);
@@ -12,7 +12,7 @@ function binarySearch(array, element, first, last) {
       return index;
     }
   }
-  return (-first - 1);
+  return -1;
 }
 
 function binarySearch2(array, element, first, last) {
@@ -29,7 +29,7 @@ function binarySearch2(array, element, first, last) {
   if (first <= last) {
     return binarySearch2(array, element, first, last);
   } else {
-      return (-first - 1);
+    return -1;
   }
 }
 
@@ -40,7 +40,7 @@ console.log(binarySearch([0, 2, 4], -1));
 console.log(binarySearch([0, 2, 4], 5));
 console.log(binarySearch([], 6));
 console.log(binarySearch([5], 6));
-console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 6, 1, 1));
+console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 6));
 console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 0));
 console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10));
 console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], -1));
