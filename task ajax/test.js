@@ -1,7 +1,7 @@
-var Loader = require('./loader');
-var ChartLoader = require('./chartLoader');
-var ArtistLoader = require('./artistLoader');
-var AlbumLoader = require('./albumLoader');
+let Loader = require('./loader');
+let ChartLoader = require('./chartLoader');
+let ArtistLoader = require('./artistLoader');
+let AlbumLoader = require('./albumLoader');
 
 let toPrint = function(data) {
   console.log(data);

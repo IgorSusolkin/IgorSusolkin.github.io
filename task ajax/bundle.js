@@ -1,3 +1,4 @@
+var test =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -72,27 +73,29 @@
 
 "use strict";
 
-module.exports = Loader;
+
 function Loader() {
-	this.apiKey = '?api_key=405145a079442dd8d2b3c645a0a6f2c7';
-	this.resource = 'http://ws.audioscrobbler.com/2.0/';
-	this.method = '&method=';
-	this.format = '&format=json';
-	this.preUrl = this.resource + this.apiKey + this.format + this.method;
+  this.apiKey = '?api_key=405145a079442dd8d2b3c645a0a6f2c7';
+  this.resource = 'http://ws.audioscrobbler.com/2.0/';
+  this.method = '&method=';
+  this.format = '&format=json';
+  this.preUrl = this.resource + this.apiKey + this.format + this.method;
 }
 Loader.prototype.load = function(url, callback) {
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
-	xhr.send();
-	xhr.onreadystatechange = function() {
-  	if (xhr.readyState != 4) return;
-  	if (xhr.status != 200) {
-			return callback(console.log(xhr.status + ': ' + xhr.statusText));
-  	} else {
-			return callback(xhr.responseText);
-  	}
-	};
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.send();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState != 4) return;
+    if (xhr.status != 200) {
+      return callback(console.log(xhr.status + ': ' + xhr.statusText));
+    } else {
+      return callback(xhr.responseText);
+    }
+  };
 }
+
+module.exports = Loader;
 
 
 /***/ }),
@@ -101,20 +104,23 @@ Loader.prototype.load = function(url, callback) {
 
 "use strict";
 
-module.exports = AlbumLoader;
-var Loader = __webpack_require__(0);
+
+let Loader = __webpack_require__(0);
+
 function AlbumLoader() {
   Loader.apply(this, arguments);
 }
-AlbumLoader.prototype.__proto__ = Loader.prototype;
+AlbumLoader.prototype = Object.create(Loader.prototype);
 AlbumLoader.prototype.getInfo = function(callback, artist, album, mbid, autoCorrect, userName, lang) {
-	let url = this.preUrl + "album.getInfo" + '&artist=' +  artist + '&album=' + album;
-	if (mbid) url += '&mbid=' + mbid;
-	if (autoCorrect) url += '&autocorrect=' + autoCorrect;
-	if (userName) url += '&username=' + userName;
-	if (lang) url += '&lang=' + lang;
-	return this.load(url, callback);
+  let url = this.preUrl + "album.getInfo" + '&artist=' +  artist + '&album=' + album;
+  if (mbid) url += '&mbid=' + mbid;
+  if (autoCorrect) url += '&autocorrect=' + autoCorrect;
+  if (userName) url += '&username=' + userName;
+  if (lang) url += '&lang=' + lang;
+  return this.load(url, callback);
 }
+
+module.exports = AlbumLoader;
 
 
 /***/ }),
@@ -123,26 +129,29 @@ AlbumLoader.prototype.getInfo = function(callback, artist, album, mbid, autoCorr
 
 "use strict";
 
-module.exports = ArtistLoader;
-var Loader = __webpack_require__(0);
+
+let Loader = __webpack_require__(0);
+
 function ArtistLoader() {
   Loader.apply(this, arguments);
 }
-ArtistLoader.prototype.__proto__ = Loader.prototype;
+ArtistLoader.prototype = Object.create(Loader.prototype);
 ArtistLoader.prototype.search = function(callback, artist, limit, page) {
-	let url = this.preUrl + "artist.search" + '&artist=' + artist;
-	if (limit) url += '&limit=' + limit;
-	if (page) url += '&page=' + page;
-	return this.load(url, callback);
+  let url = this.preUrl + "artist.search" + '&artist=' + artist;
+  if (limit) url += '&limit=' + limit;
+  if (page) url += '&page=' + page;
+  return this.load(url, callback);
 }
 ArtistLoader.prototype.getInfo = function(callback, artist, mbid, lang, autoCorrect, userName) {
-	let url = this.preUrl + "artist.getinfo" + '&artist=' + artist;
-	if (mbid) url += '&mbid=' + mbid;
-	if (lang) url += '&lang=' + lang;
-	if (autoCorrect) url += '&autocorrect=' + autoCorrect;
-	if (userName) url += '&username=' + userName;
-	return this.load(url, callback);
+  let url = this.preUrl + "artist.getinfo" + '&artist=' + artist;
+  if (mbid) url += '&mbid=' + mbid;
+  if (lang) url += '&lang=' + lang;
+  if (autoCorrect) url += '&autocorrect=' + autoCorrect;
+  if (userName) url += '&username=' + userName;
+  return this.load(url, callback);
 }
+
+module.exports = ArtistLoader;
 
 
 /***/ }),
@@ -151,31 +160,34 @@ ArtistLoader.prototype.getInfo = function(callback, artist, mbid, lang, autoCorr
 
 "use strict";
 
-module.exports = ChartLoader;
-var Loader = __webpack_require__(0);
+
+let Loader = __webpack_require__(0);
+
 function ChartLoader() {
   Loader.apply(this, arguments);
 }
-ChartLoader.prototype.__proto__ = Loader.prototype;
+ChartLoader.prototype = Object.create(Loader.prototype);
 ChartLoader.prototype.getTopArtists = function(callback, page, limit) {
-	let url = this.preUrl + "chart.gettopartists";
-	if (page) url += '&page=' + page;
-	if (limit) url += '&limit=' + limit;
-	return this.load(url, callback);
+  let url = this.preUrl + "chart.gettopartists";
+  if (page) url += '&page=' + page;
+  if (limit) url += '&limit=' + limit;
+  return this.load(url, callback);
 }
+
+module.exports = ChartLoader;
 
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Loader = __webpack_require__(0);
-var ChartLoader = __webpack_require__(3);
-var ArtistLoader = __webpack_require__(2);
-var AlbumLoader = __webpack_require__(1);
+let Loader = __webpack_require__(0);
+let ChartLoader = __webpack_require__(3);
+let ArtistLoader = __webpack_require__(2);
+let AlbumLoader = __webpack_require__(1);
 
 let toPrint = function(data) {
-	console.log(data);
+  console.log(data);
 }
 let chart = new ChartLoader();
 console.log(chart.getTopArtists(toPrint));
@@ -189,3 +201,4 @@ console.log("End");
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
