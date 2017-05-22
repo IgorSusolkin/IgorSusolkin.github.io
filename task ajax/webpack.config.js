@@ -3,10 +3,10 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: './test.js',
+  entry: './start.js',
   output: {
     filename: 'bundle.js',
-    library: 'test'
+    library: 'start'
 	},
 
   watch: NODE_ENV == 'development',

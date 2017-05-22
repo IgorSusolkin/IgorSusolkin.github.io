@@ -20,5 +20,13 @@ ArtistLoader.prototype.getInfo = function(callback, artist, mbid, lang, autoCorr
   if (userName) url += '&username=' + userName;
   return this.load(url, callback);
 }
+ArtistLoader.prototype.getArtistTopAlbums = function(callback, artist, mbid, page, autoCorrect, limit) {
+  let url = this.preUrl + "artist.getTopAlbums" + '&artist=' + artist;
+  if (mbid) url += '&mbid=' + mbid;
+  if (page) url += '&page=' + page;
+  if (autoCorrect) url += '&autocorrect=' + autoCorrect;
+  if (limit) url += '&limit=' + limit;
+  return this.load(url, callback);
+}
 
 module.exports = ArtistLoader;
