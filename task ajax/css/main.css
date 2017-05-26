@@ -1,0 +1,124 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  margin: 0 auto 0;
+  width: 1200px;
+  padding: 10px 0 10px 34px;
+  background: #e31b23 linear-gradient(#e31b23, #b32024);
+  border: 1px solid #a00;
+  box-sizing: border-box;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+#wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 10px 0px;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+}
+
+footer {
+  flex: 0 0 auto;
+  margin: 10px auto 0;
+  width: 1200px;
+  height: 5%;
+  background: #e31b23 linear-gradient(#e31b23, #b32024);
+  border: 1px solid #a00;
+  box-sizing: border-box;
+}
+
+footer p {
+  margin: 8px;
+  color: white;
+  text-align: center;
+}
+
+.search-bar {
+  display: block;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  display: inline-block;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  width: 23%;
+  height: 25%;
+  margin: 6% 1%;
+}
+
+.content img {
+  width: 90%;
+}
+
+.content-img {
+  margin: 20px;
+}
+
+.content a {
+  font-size: 25px;
+}
+
+.info-content {
+  position: relative;
+}
+
+.info-content img {
+  float:left;
+}
+
+.rating-bar {
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+
+.rating-bar img {
+  width: 30px;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  text-align: left;
+  clear: both;
+  padding: 1px;
+}
+
+.title p {
+  font-size: 25px;
+}
+
+.pagination {
+  display: block;
+  width: 100%;
+  text-align: center;
+  clear: both;
+  padding: 1px;
+}
+
+.pagination a {
+  cursor: pointer;
+}
+
+.bar-pagination {
+  display: inline-block;
+  margin: 3px 5px;
+}
