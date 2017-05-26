@@ -6,6 +6,7 @@ function ChartLoader() {
   Loader.apply(this, arguments);
 }
 ChartLoader.prototype = Object.create(Loader.prototype);
+
 ChartLoader.prototype.getTopArtists = function(callback, page, limit) {
   let url = this.preUrl + "chart.gettopartists";
   if (page) url += '&page=' + page;

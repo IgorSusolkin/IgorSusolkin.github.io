@@ -6,6 +6,7 @@ function AlbumLoader() {
   Loader.apply(this, arguments);
 }
 AlbumLoader.prototype = Object.create(Loader.prototype);
+
 AlbumLoader.prototype.getInfo = function(callback, artist, album, mbid, autoCorrect, userName, lang) {
   let url = this.preUrl + "album.getInfo" + '&artist=' +  artist + '&album=' + album;
   if (mbid) url += '&mbid=' + mbid;

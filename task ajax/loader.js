@@ -7,6 +7,7 @@ function Loader() {
   this.format = '&format=json';
   this.preUrl = this.resource + this.apiKey + this.format + this.method;
 }
+
 Loader.prototype.load = function(url, callback) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
@@ -14,7 +15,7 @@ Loader.prototype.load = function(url, callback) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState != 4) return;
     if (xhr.status != 200) {
-      return callback(console.log(xhr.status + ': ' + xhr.statusText));
+      return callback(xhr.status + ': ' + xhr.statusText);
     } else {
       return callback(xhr.responseText);
     }

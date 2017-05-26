@@ -115,7 +115,6 @@ Page.prototype.showArtistAlbums = function(data) {
 
 Page.prototype.showAlbumInfo = function(data) {
   let album = JSON.parse(data).album;
-  console.dir(album);
   page.elements.clear();
   let releaseDate = album.releasedate || 'unknown';
   page.elements.addBasicInfo({

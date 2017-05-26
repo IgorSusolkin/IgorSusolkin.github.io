@@ -1,6 +1,7 @@
 html {
   height: 100%;
 }
+
 body {
   background-color: gray;
   display: flex;
@@ -21,6 +22,7 @@ header a {
   color: white;
   text-decoration: none;
 }
+
 #wrapper {
   width: 1200px;
   margin: 0 auto;
@@ -28,6 +30,7 @@ header a {
   flex: 1 0 auto;
   box-sizing: border-box;
 }
+
 footer {
   flex: 0 0 auto;
   margin: 10px auto 0;
@@ -60,12 +63,15 @@ footer p {
   height: 25%;
   margin: 6% 1%;
 }
+
 .content img {
   width: 90%;
 }
+
 .content-img {
   margin: 20px;
 }
+
 .content a {
   font-size: 25px;
 }
@@ -73,14 +79,17 @@ footer p {
 .info-content {
   position: relative;
 }
+
 .info-content img {
   float:left;
 }
+
 .rating-bar {
   position: absolute;
   top: 0;
   right: 40px;
 }
+
 .rating-bar img {
   width: 30px;
 }
@@ -92,9 +101,11 @@ footer p {
   clear: both;
   padding: 1px;
 }
+
 .title p {
   font-size: 25px;
 }
+
 .pagination {
   display: block;
   width: 100%;
@@ -102,9 +113,11 @@ footer p {
   clear: both;
   padding: 1px;
 }
+
 .pagination a {
   cursor: pointer;
 }
+
 .bar-pagination {
   display: inline-block;
   margin: 3px 5px;
