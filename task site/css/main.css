@@ -217,7 +217,9 @@ nav > ul {
 .nav ul a {
   white-space: nowrap;
   display: inline-block;
-  width: 48%;
+  width: 44.5%;
+  position: relative;
+  padding-left: 25px;
 }
 
 .nav li:hover ul {
@@ -237,6 +239,15 @@ nav > ul {
 .nav li:hover ul li a:hover {
   background: #333;
   text-decoration: underline;
+}
+
+.nav ul a:before {
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  content: '\2022';
+  color: blue;
+  font-size: 200%;
 }
 
 .slider {
